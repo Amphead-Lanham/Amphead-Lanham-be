@@ -1,8 +1,15 @@
 DROP TABLE IF EXISTS announcements;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE announcements (
   id BIGINT GENERATED ALWAYS AS IDENTITY,
   side TEXT NOT NULL,
   title TEXT,
   body TEXT
+);
+
+CREATE TABLE users (
+  id BIGINT GENERATED ALWAYS AS IDENTITY,
+  email TEXT UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL
 );
