@@ -69,5 +69,26 @@ describe('amphead-lanham-be routes', () => {
       });
   });
 
+  it('creates an image', () => {
+    return request(app)
+      .post('/api/v1/images')
+      .send({
+        name: 'croc-skin-JLT45',
+        imageUrl: 'https://i.imgur.com/uAXh0xl.jpg',
+        caption: '',
+        side: 'lanham'
+      })
+      .then(res => {
+        expect(res.body).toEqual({
+          id: expect.any(String),
+          name: 'croc-skin-JLT45',
+          imageUrl: 'https://i.imgur.com/uAXh0xl.jpg',
+          caption: '',
+          side: 'lanham'
+        });
+    
+      });
+  });
+
   
 });
